@@ -1,0 +1,25 @@
+$def with (aLog)
+<head>
+	<title>Serial Server Logs</title>
+	<link href="/images/logo.png" rel="SHORTCUT ICON">
+</head>
+
+<table>
+	<tr>
+		<td width="100px" valign="top">
+		<div id="menu">
+		<a href="/">HOME</a>
+		<a href="/logs">LOGS</a>
+		</div>
+		</td>
+		<td>
+		<div id="content">
+			$for sLog in aLog:
+				$sLog<br>
+		</div>
+		</td>
+	</tr>
+
+	
+</table>
+

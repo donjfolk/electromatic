@@ -1,0 +1,1 @@
+<mux activation_date="2017-05-03" license="" serial="000000008dcd1132"><devices><device baudrate="9600" device="/dev/ttyUSB0" name="master" parity="N" rtc="0" stopbits="1" width="8" xon="0" /><device baudrate="9600" device="/dev/ttyUSB0" name="slave" parity="N" rtc="0" stopbits="1" width="8" xon="0" /><device host="" killport="1.5" name="tcp" port="2101" /></devices></mux>

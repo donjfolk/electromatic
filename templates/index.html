@@ -1,0 +1,196 @@
+$def with (dData, dMaster, dSlave, dTCP)
+<head>
+	<title>Serial Server Config</title>
+	<link href="/images/logo.png" rel="SHORTCUT ICON">
+</head>
+<p>IP:$dData['IP']</p>
+<p>DATE:$dData['date']</p>
+<table>
+	<tr>
+		<td width="100px" valign="top">
+		<div id="menu">
+		<a href="/">HOME</a>
+		<a href="/logs">LOGS</a>
+		</div>
+		</td>
+		<td>
+		<div id="content">
+			<form method='POST'>
+				<table>
+					<tr>
+						<td>MASTER DEVICE:</td>
+						<td><select name="master_device">
+							$for sDevice in dData['master_device']:
+								$if sDevice == dMaster['device']:
+									<option selected value="$sDevice">$sDevice</option>
+								$else:
+									<option value="$sDevice">$sDevice</option>
+							</select></td>
+						<td>SLAVE DEVICE:</td>
+						<td><select name="slave_device">
+							$for sDevice in dData['slave_device']:
+								$if sDevice == dSlave['device']:
+									<option selected value="$sDevice">$sDevice</option>
+								$else:
+									<option value="$sDevice">$sDevice</option>
+							</select></td>
+					</tr>
+					
+					<tr>
+						<td>MASTER BAUD:</td>
+						<td><select name="master_baudrate">
+							$for sDevice in dData['master_baud']:
+								$if sDevice == int(dMaster['baudrate']):
+									<option selected value="$sDevice">$sDevice</option>
+								$else:
+									<option value="$sDevice">$sDevice</option>
+							</select></td>
+						<td>SLAVE BAUD:</td>
+						<td><select name="slave_baudrate">
+							$for sDevice in dData['slave_baud']:
+								$if sDevice == int(dSlave['baudrate']):
+									<option selected value="$sDevice">$sDevice</option>
+								$else:
+									<option value="$sDevice">$sDevice</option>
+							</select></td>
+					</tr>
+					
+					<tr>
+						<td>MASTER DATA BITS:</td>
+						<td><select name="master_width">
+							$for s in dData['master_width']:
+								$if s == int(dMaster['width']):
+									<option selected value="$s">$s</option>
+								$else:
+									<option value="$s">$s</option>
+								
+							</select></td>
+						
+						<td>SLAVE DATA BITS:</td>
+						<td><select name="slave_width">
+							$for s in dData['slave_width']:
+								$if s == int(dSlave['width']):
+									<option selected value="$s">$s</option>
+								$else:
+									<option value="$s">$s</option>
+							</select></td>
+					</tr>
+					
+					<tr>
+						<td>MASTER PARITY:</td>
+						<td><select name="master_parity">
+							$for s in dData['master_parity']:
+								$if s == dMaster['parity']:
+									<option selected value="$s">$s</option>
+								$else:
+									<option value="$s">$s</option>
+							</select></td>
+						<td>SLAVE PARITY:</td>
+						<td><select name="slave_parity">
+							$for s in dData['slave_parity']:
+								$if s == dSlave['parity']:
+									<option selected value="$s">$s</option>
+								$else:
+									<option value="$s">$s</option>
+							</select></td>
+					</tr>
+					
+					<tr>
+						<td>MASTER STOP BITS:</td>
+						<td><select name="master_stopbits">
+							$for s in dData['master_stopbits']:
+								$if s == int(dMaster['stopbits']):
+									<option selected value="$s">$s</option>
+								$else:
+									<option value="$s">$s</option>
+							</select></td>
+						<td>SLAVE STOP BITS:</td>
+						<td><select name="slave_stopbits">
+							$for s in dData['slave_stopbits']:
+								$if s == int(dSlave['stopbits']):
+									<option selected value="$s">$s</option>
+								$else:
+									<option value="$s">$s</option>
+							</select></td>
+					</tr>
+					
+					<tr>
+						<td>MASTER XON:</td>
+						<td><select name="master_xon">
+							$for s in dData['master_xon']:
+								$if s == int(dMaster['xon']):
+									<option selected value="$s">$s</option>
+								$else:
+									<option value="$s">$s</option>
+							</select></td>
+						<td>SLAVE XON:</td>
+						<td><select name="slave_xon">
+							$for s in dData['slave_xon']:
+								$if s == int(dSlave['xon']):
+									<option selected value="$s">$s</option>
+								$else:
+									<option value="$s">$s</option>
+							</select></td>
+					</tr>
+					
+					<tr>
+						<td>MASTER RTC:</td>
+						<td><select name="master_rtc">
+							$for s in dData['master_rtc']:
+								$if s == int(dMaster['rtc']):
+									<option selected value="$s">$s</option>
+								$else:
+									<option value="$s">$s</option>
+							</select></td>
+						<td>SLAVE RTC:</td>
+						<td><select name="slave_rtc">
+							$for s in dData['slave_rtc']:
+								$if s == int(dSlave['rtc']):
+									<option selected value="$s">$s</option>
+								$else:
+									<option value="$s">$s</option>
+							</select></td>
+					</tr>
+					
+					<tr>
+						<td>TCP PORT:</td>
+						<td><select name="tcp_port">
+							$for s in dData['tcp_port']:
+								$if s == int(dTCP['port']):
+									<option selected value="$s">$s</option>
+								$else:
+									<option value="$s">$s</option>
+							</select></td>
+						<td>TCP KILL TIME:</td>
+						<td><select name="tcp_killport">
+							$for s in dData['tcp_killport']:
+								$if s == float(dTCP['killport']):
+									<option selected value="$s">$s</option>
+								$else:
+									<option value="$s">$s</option>
+							</select></td>
+					</tr>
+					<tr>
+						<td>SERIAL:</td>
+						<td><input type="text" name="serial" id="serial" readonly value="$dData['serial']"/></td>
+						<td>ACT DATE:</td>
+						<td><input type="text" name="activation_date" id="activation_date" readonly value="$dData['activation_date']"/></td>
+					</tr>
+					<tr>
+						<td>License:</td>
+						<td><input type="text" name="license" id="license" value="$dData['license']"/></td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="Submit"></td>
+					</tr>
+					
+					
+				</table>
+			</form> 
+		</div>
+		</td>
+	</tr>
+
+	
+</table>
+
